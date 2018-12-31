@@ -19,7 +19,7 @@ type Poem struct {
 func main() {
   router := gin.Default()
 
-  router.Use(static.Serve("/", static.LocalFile("./frontend/dist", true)))
+  router.Use(static.Serve("/", static.LocalFile("./frontend/dist/greeting/index.html", true)))
   router.Use(static.Serve("/download", static.LocalFile("./output", true)))
 
   api := router.Group("/api/v1")
@@ -79,7 +79,7 @@ func main() {
   }
 
   router.NoRoute(func(c *gin.Context) {
-    c.File("./frontend/dist/index.html")
+    c.File("./frontend/dist/greeting/index.html")
   })
 
   router.Run(":8889")
