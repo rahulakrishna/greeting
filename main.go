@@ -19,7 +19,7 @@ type Poem struct {
 func main() {
   router := gin.Default()
 
-  router.Use(static.Serve("/", static.LocalFile("./frontend/dist/greeting/index.html", true)))
+  router.Use(static.Serve("/", static.LocalFile("./frontend/dist/greeting", true)))
   router.Use(static.Serve("/download", static.LocalFile("./output", true)))
 
   api := router.Group("/api/v1")
@@ -27,7 +27,7 @@ func main() {
     api.POST("/card", func(c *gin.Context) {
       var poem Poem
       c.BindJSON(&poem)
-
+      log.Print(poem)
       im, err := gg.LoadImage("frames/f1.png")
 
       if err != nil {
@@ -38,7 +38,7 @@ func main() {
 
       dc.SetRGB255(220, 94, 94)
 
-      if err := dc.LoadFontFace("fonts/", 44); err != nil {
+      if err := dc.LoadFontFace("fonts/bucthu.ttf", 44); err != nil {
         panic(err)
       }
 
@@ -82,5 +82,5 @@ func main() {
     c.File("./frontend/dist/greeting/index.html")
   })
 
-  router.Run(":8889")
+  router.Run(":8899")
 }
