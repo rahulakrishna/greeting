@@ -1,3 +1,14 @@
-<p>
-  home works!
-</p>
+<h1>Greeting card generator</h1>
+<div>
+  <label>Title</label>
+  <input type="text" name="title" [(ngModel)]="poem.title">
+  <label>Author</label>
+  <input type="text" name="author" [(ngModel)]="poem.author">
+</div>
+<div>
+  <label>Content</label>
+  <textarea name="content" rows="8" cols="80" [(ngModel)]="body"></textarea>
+</div>
+<div>
+  <button type="button" name="generateButton" (click)="generate()">Generate</button>
+</div>
