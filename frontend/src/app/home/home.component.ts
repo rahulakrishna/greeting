@@ -10,6 +10,8 @@ import { PoemService } from "../poem.service";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
+  poem = new Poem();
+  body = "";
   constructor(private poemService: PoemService, private router: Router) {}
 
   ngOnInit(): void {
