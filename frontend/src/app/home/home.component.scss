@@ -1,8 +1,14 @@
-h1 {
-  font-family: Helvetica;
-  text-align: center;
+.toolbar {
+  position: absolute;
+  left: 0px;
+  top: 0px;
 }
-
-.main-content {
-  text-align: center;
+.form-container {
+  margin: 100px;
+  .full-width {
+    width: 100%;
+  }
+  .poem-input {
+    height: 170px;
+  }
 }

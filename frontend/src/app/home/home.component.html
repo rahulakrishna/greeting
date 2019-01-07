@@ -1,17 +1,34 @@
-<div class="main-content">
-  <h1>Greeting card generator</h1>
+<mat-toolbar color="primary" class="toolbar">
+  <span>Greeting</span> <span class="example-fill-remaining-space"></span>
+</mat-toolbar>
+<div class="form-container">
+  <mat-form-field class="full-width">
+    <input
+      matInput
+      placeholder="Title"
+      [(ngModel)]="poem.title"
+      theme="secondary"
+    />
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Author" [(ngModel)]="poem.author" />
+  </mat-form-field>
+  <mat-form-field class="full-width">
+    <textarea
+      matInput
+      placeholder="Content"
+      [(ngModel)]="body"
+      class="poem-input"
+    ></textarea>
+  </mat-form-field>
   <div>
-    <label>Title</label><br />
-    <input type="text" name="title" [(ngModel)]="poem.title" /> <br />
-    <label>Author</label><br />
-    <input type="text" name="author" [(ngModel)]="poem.author" />
-  </div>
-  <div>
-    <label>Content</label><br />
-    <textarea name="content" rows="8" cols="80" [(ngModel)]="body"></textarea>
-  </div>
-  <div>
-    <button type="button" name="generateButton" (click)="generate()">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      name="generateButton"
+      (click)="generate()"
+    >
       Generate
     </button>
   </div>
