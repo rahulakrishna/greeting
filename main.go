@@ -11,6 +11,7 @@ import (
 	//"net/http"
 )
 
+// Poem structure. Defines Title, Body and Author
 type Poem struct {
 	Title  string   `json:"title" binding:"required"`
 	Body   []string `json:"body" binding:"required"`
@@ -39,8 +40,8 @@ func main() {
 
 			dc.SetRGB255(220, 94, 94)
 
-			if err := dc.LoadFontFace("fonts/bucthu.ttf", 44); err != nil {
-				panic(err)
+			if fontFaceErr := dc.LoadFontFace("fonts/bucthu.ttf", 44); fontFaceErr != nil {
+				panic(fontFaceErr)
 			}
 
 			width, height := float64(dc.Width())/1.8, float64(dc.Height())/3
