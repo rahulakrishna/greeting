@@ -24,40 +24,47 @@ func main() {
 	router.Use(static.Serve("/", static.LocalFile("./frontend/dist/greeting", true)))
 	router.Use(static.Serve("/download", static.LocalFile("./output", true)))
 
+	// Routes
 	api := router.Group("/api/v1")
 	{
 		api.POST("/card", func(c *gin.Context) {
+			// Data from post form
 			var poem Poem
 			c.BindJSON(&poem)
-			log.Print(poem)
-			im, err := gg.LoadImage("frames/f3.jpg")
+
+			// Read the image
+			im, err := gg.LoadImage("frames/f1.png")
 
 			if err != nil {
 				log.Fatal(err)
 			}
 
+			// Create a context with dimensions same as the image
 			dc := gg.NewContextForImage(im)
 
-			dc.SetRGB255(220, 94, 94)
+			// Set text color
+			dc.SetRGB255(194, 24, 91)
 
-			if fontFaceErr := dc.LoadFontFace("fonts/bucthu.ttf", 44); fontFaceErr != nil {
+			// Load the fontface and set the size as 24
+			if fontFaceErr := dc.LoadFontFace("fonts/baybuom.ttf", 22); fontFaceErr != nil {
 				panic(fontFaceErr)
 			}
 
-			width, height := float64(dc.Width())/1.8, float64(dc.Height())/3
+			// Set the text width and height
+			width, height := float64(dc.Width())/2, float64(dc.Height())/3
 
-			sep := "-------------------o0o-------------------"
+			sep := "______________o0o______________"
 
-			dc.DrawStringAnchored(poem.Title, width, height, 0.5, 0.5)
+			dc.DrawStringAnchored(poem.Title, width, height, -0.4, -1.5)
+
+			dc.DrawStringAnchored(sep, width, height, 0.1, 0.1)
 
 			for _, line := range poem.Body {
 				height += 42
-				dc.DrawStringAnchored(line, width, height, 0.5, 0.5)
+				dc.DrawStringAnchored(line, width, height, 0.1, -0.7)
 			}
 
-			dc.DrawStringAnchored(sep, width, height, 0.5, 0.5)
-
-			dc.DrawStringAnchored(poem.Author, width, height, 0.5, 0.5)
+			dc.DrawStringAnchored("- "+poem.Author, width, height, -0.7, -1)
 
 			dc.DrawImage(im, 0, 0)
 
