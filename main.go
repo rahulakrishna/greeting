@@ -14,7 +14,7 @@ import (
 type Poem struct {
 	Title  string   `json:"title" binding:"required"`
 	Body   []string `json:"body" binding:"required"`
-	Author string   `json:"body" binding:"required"`
+	Author string   `json:"author" binding:"required"`
 }
 
 func main() {
