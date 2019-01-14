@@ -1,35 +1,40 @@
-<mat-toolbar color="primary" class="toolbar">
-  <span>Greeting</span> <span class="example-fill-remaining-space"></span>
-</mat-toolbar>
-<div class="form-container">
-  <mat-form-field class="full-width">
-    <input
-      matInput
-      placeholder="Title"
-      [(ngModel)]="poem.title"
-      theme="secondary"
-    />
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <input matInput placeholder="Author" [(ngModel)]="poem.author" />
-  </mat-form-field>
-  <mat-form-field class="full-width">
-    <textarea
-      matInput
-      placeholder="Content"
-      [(ngModel)]="body"
-      class="poem-input"
-    ></textarea>
-  </mat-form-field>
-  <div>
-    <button
-      mat-raised-button
-      color="primary"
-      type="button"
-      name="generateButton"
-      (click)="generate()"
-    >
-      Generate
-    </button>
+<div ngClass="{{darkMode ? 'dark home' : 'light home'}}">
+  <mat-toolbar color="primary" class="toolbar">
+    <span>Greeting</span> <span class="spacer"> </span>
+    <mat-slide-toggle class="toggle" [(ngModel)]="darkMode">
+      Toggle Dark Mode
+    </mat-slide-toggle>
+  </mat-toolbar>
+  <div class="form-container">
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Title"
+        [(ngModel)]="poem.title"
+        theme="secondary"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Author" [(ngModel)]="poem.author" />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea
+        matInput
+        placeholder="Content"
+        [(ngModel)]="body"
+        class="poem-input"
+      ></textarea>
+    </mat-form-field>
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        name="generateButton"
+        (click)="generate()"
+      >
+        Generate
+      </button>
+    </div>
   </div>
 </div>

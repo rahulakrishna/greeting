@@ -1,7 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 body {
-  background-color: #292c35;
-  color: #bbbbbb;
+  .home {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+  .dark {
+    background-color: #292c35;
+    color: #bbbbbb;
+    .mat-form-field-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    transition: all 0.5s;
+  }
+  .light {
+    background-color: #fff;
+    color: #292c35;
+    transition: all 0.5s;
+  }
 }

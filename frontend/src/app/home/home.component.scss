@@ -1,14 +1,35 @@
-.toolbar {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-}
-.form-container {
-  margin: 100px;
-  .full-width {
-    width: 100%;
+.home {
+  .dark {
+    background-color: #292c35;
+    color: #bbbbbb;
   }
-  .poem-input {
-    height: 170px;
+  .light {
+    background: #fff;
+    color: #292c35;
+  }
+  .toolbar {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    .spacer {
+      flex: 1 1 auto;
+    }
+    .toggle {
+      font-size: 14px;
+    }
+  }
+  .form-container {
+    .dark {
+      .input[placeholder] {
+        color: #ff0000;
+      }
+    }
+    margin: 100px;
+    .full-width {
+      width: 100%;
+    }
+    .poem-input {
+      height: 170px;
+    }
   }
 }
